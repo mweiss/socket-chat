@@ -41,7 +41,7 @@ io.on('connection', function(socket){
   var room;
 
   socket.on('chat message', function(msg){
-    logWithSocket(socket, 'message: ' + msg);
+    logWithSocket(socket, 'message: ' + JSON.stringify(msg));
     if (room) {
       io.to(room).emit('chat message', msg);
     }
