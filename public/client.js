@@ -1,4 +1,4 @@
-(function() {
+(function () {
   var pathParts = window.location.pathname.split("/");
   var roomName = pathParts[pathParts.length - 1];
   var socket = io();
@@ -7,10 +7,10 @@
   socket.emit('subscribe to room', roomName)
 
   var anonName = 'Anonymous' + Math.floor((Math.random() * 100000000) + 1);
-  $('#name').val(Cookies.get('name') || anonName)
+  $('#name').val(Cookies.get('name') || anonName);
 
   function getName() {
-    return $('#name').val() || anonName
+    return $('#name').val() || anonName;
   }
 
   $('#name').on('change', function() {
@@ -18,7 +18,6 @@
   });
 
   $('form').submit(function(){
-    console.log('sending chat message', $('#m').val())
     socket.emit('chat message', {message: $('#m').val(), name: getName(), id: socket.io.engine.id});
     $('#m').val('');
     return false;
@@ -37,7 +36,7 @@
 
   // We'll append a message to the beginning of the chat so the user can invite others.
   var href = window.location.href;
-  var subject = encodeURIComponent('Let\'s chat!')
+  var subject = encodeURIComponent('Let\'s chat!');
   var body = encodeURIComponent('Hey, click this link so we can chat: ' + href);
   var mailToLink = 'mailto:someone@example.com?subject=' + subject + '&body=' + body;
 
