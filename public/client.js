@@ -18,8 +18,11 @@
   });
 
   $('form').submit(function(){
-    socket.emit('chat message', {message: $('#m').val(), name: getName(), id: socket.io.engine.id});
-    $('#m').val('');
+    var val = $('#m').val();
+    if (val) {
+      socket.emit('chat message', {message: val, name: getName(), id: socket.io.engine.id});
+      $('#m').val('');
+    }
     return false;
   });
 
