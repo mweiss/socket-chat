@@ -35,7 +35,7 @@ io.on('connection', function(socket, testOptions){
     socket.join(room);
   })
 });
-
-http.listen(30051, function(){
+var port = (process.env.PORT || 5000);
+http.listen(port, function(){
   console.log('listening on *:30051');
 });
