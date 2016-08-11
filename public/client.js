@@ -32,6 +32,7 @@
     var messageEle = $('<span class="msg">').text(msg.message);
 
     $('#messages').append($('<li>').append(nameEle).append(messageEle));
+    window.scrollTo(0, document.body.scrollHeight);
   });
 
   // We'll append a message to the beginning of the chat so the user can invite others.
