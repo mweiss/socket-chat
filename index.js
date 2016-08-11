@@ -36,7 +36,6 @@ function logWithSocket(socket, msg) {
  */
 io.on('connection', function(socket){
   logWithSocket(socket, 'Connected!');
-  socket.broadcast.emit('hi');
 
   var room;
 
